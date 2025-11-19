@@ -20,5 +20,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        if ($memoryLimit = config('excel.exports.memory_limit')) {
+            @ini_set('memory_limit', $memoryLimit);
+        }
     }
 }
